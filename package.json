@@ -1,0 +1,22 @@
+{
+  "name": "fvtt-ondeck",
+  "version": "0.0.1",
+  "description": "FoundryVTT module to alert players when their turn is next",
+  "main": "dist/ondeck.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thatsnice/FVTT-OnDeck.git"
+  },
+  "author": "Robert de Forest <guitar.robot@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thatsnice/FVTT-OnDeck/issues"
+  },
+  "homepage": "https://github.com/thatsnice/FVTT-OnDeck#readme",
+  "dependencies": {
+    "coffeescript": "^2.5.1"
+  }
+}
