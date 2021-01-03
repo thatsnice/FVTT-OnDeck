@@ -4,5 +4,12 @@
   "description": "Send a message or play a sound for a player at the start of the turn of the actor before them in the initiative order.",
   "author": "Robert de Forest <guitar.robot@gmail.com>",
   "version": "0.0.1",
-  "minimumCoreVersion": "0.7.5"
+  "minimumCoreVersion": "0.7.5",
+  "url": "https://github.com/thatsnice/FVTT-OnDeck",
+  "dependencies": [
+    {
+      "name": "FVTT-Turn-Alert",
+      "manifest": "https://raw.githubusercontent.com/schultzcole/FVTT-Turn-Alert/master/module.json"
+    }
+  ]
 }
