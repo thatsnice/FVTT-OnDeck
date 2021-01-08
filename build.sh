@@ -1,6 +1,7 @@
 PROJECT_ROOT=$(realpath $(dirname $0))
-SCRIPTS=$PROJECT_ROOT\scripts
-SRC=$PROJECT_ROOT\src
+SCRIPTS=$PROJECT_ROOT/scripts
+SRC=$PROJECT_ROOT/src
+COFFEE=$PROJECT_ROOT/node_modules/coffeescript/bin/coffee
 
 mkdir   -p $SCRIPTS
-$coffee -o $SCRIPTS $SRC
+$COFFEE -o $SCRIPTS $SRC

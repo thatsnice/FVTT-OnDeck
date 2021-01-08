@@ -1,22 +1,11 @@
-notifyPlayer = (player, actorName) ->
-  message =
-    speaker: alias: "On Deck Module"
-    content: "Be ready to take your turn as #{actorName}."
-    whisper: [player._id]
+wantsOnDeckNotice = (player) ->
+  return true # XXX: until we create an option for it
 
-  await ChatMessage.create message
+  # player.getFlag("on-deck", "notifyMe")
 
 
-maybeNotifyPlayer = (turn) ->
-  actorName = turn.actor.name
-
-  (player) ->
-    if wantsOnDeckNotice player
-      notifyPlayer player, actorName
-
-
-nextTurn = (combat, turn) ->
-  turn = turn + 1
+nextTurnIdx = (combat, turn) ->
+  turn++
 
   if turn >= combat.turns.length
     turn = 0
@@ -29,20 +18,38 @@ handleUpdateCombat = ( combat
                        options
                        userId  ) ->
 
-  return if game.user.isGM or
-            not combat.turns?.length or
-            "round" not in changed or
-            "turn" not in changed
-
-  {turn, turns} = combat
-
-  while turn isnt nextTurn = nextTurn turn
-    notifier = maybeNotifyPlayer {players, defeated} = turns[nextTurn]
-
-    if not defeated
-      players.forEach notifier
-      return t
-
-  return null
+  user = game.user
+  {turn: curTurn, turns} = combat
 
 
+  return unless wantsOnDeckNotice user
+  return unless turns?.length > 1
+  return if user.isGM
+  return if "round" not in changed and "turn" not in changed
+
+
+  loop
+    nextTurn = nextTurnIdx curTurn
+
+    if nextTurn is curTurn
+      # all turns examined were .defeated
+      return
+
+    if (t = turns[nextTurn]).defeated
+      if combat.skipDefeated
+        continue
+      else
+        return
+
+    if user._id in t.players.map (p) -> p._id
+      actorName = t.actor.name
+      message =
+        speaker: alias: "On Deck Module"
+        content: "Be ready to take your turn as #{actorName}."
+        whisper: [user._id]
+
+      await ChatMessage.create message
+
+    return
+
+  undefined
