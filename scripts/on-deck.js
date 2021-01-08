@@ -36,6 +36,7 @@
       return;
     }
     if (indexOf.call(changed, "turn") < 0) {
+      LOG({changed}, "has no turn?");
       return;
     }
     while (true) {

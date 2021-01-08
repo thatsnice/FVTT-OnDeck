@@ -29,7 +29,9 @@ handleUpdateCombat = ( combat
 
   return if user.isGM
 
-  return unless "turn" in changed
+  unless "turn" in changed
+    LOG {changed}, "has no turn?"
+    return
 
   loop
     nextTurn = nextTurnIdx curTurn
