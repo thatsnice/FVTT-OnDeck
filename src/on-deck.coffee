@@ -12,6 +12,8 @@ nextTurnIdx = (combat, turn) ->
 
   turn
 
+LOG = (args...) ->
+  console.log "ON-DECK: ", args...
 
 handleUpdateCombat = ( combat
                        changed
@@ -21,18 +23,24 @@ handleUpdateCombat = ( combat
   user = game.user
   {turn: curTurn, turns} = combat
 
-  console.log "ON-DECK: ", { arguments }
+  LOG { arguments }
 
   return unless wantsOnDeckNotice user
-  return unless turns?.length > 1
-  return if user.isGM
-  return if "round" not in changed and "turn" not in changed
+  LOG wantsOnDeckNotice: true
 
+  #return unless turns?.length > 1
+
+  return if user.isGM
+  LOG userIsGM: false
+
+  return if "round" not in changed and "turn" not in changed
+  LOG noTurnChange: false
 
   loop
     nextTurn = nextTurnIdx curTurn
 
     if nextTurn is curTurn
+      LOG "all turns defeated"
       # all turns examined were .defeated
       return
 
@@ -49,7 +57,11 @@ handleUpdateCombat = ( combat
         content: "Be ready to take your turn as #{actorName}."
         whisper: [user._id]
 
+      LOG {actorName, message}
+
       await ChatMessage.create message
+
+      LOG "done?"
 
     return
 
