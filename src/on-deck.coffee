@@ -26,17 +26,10 @@ handleUpdateCombat = ( combat
   LOG { arguments }
 
   return unless wantsOnDeckNotice user
-  LOG wantsOnDeckNotice: true
-
-  #return unless turns?.length > 1
 
   return if user.isGM
-  LOG userIsGM: false
 
-  LOG {changed}
-  return if "round" not in changed or "turn" not in changed
-
-  LOG noTurnChange: false
+  return unless "turn" in changed
 
   loop
     nextTurn = nextTurnIdx curTurn

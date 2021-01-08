@@ -32,23 +32,12 @@
     if (!wantsOnDeckNotice(user)) {
       return;
     }
-    LOG({
-      wantsOnDeckNotice: true
-    });
-    //return unless turns?.length > 1
     if (user.isGM) {
       return;
     }
-    LOG({
-      userIsGM: false
-    });
-    LOG({changed});
-    if (indexOf.call(changed, "round") < 0 || indexOf.call(changed, "turn") < 0) {
+    if (indexOf.call(changed, "turn") < 0) {
       return;
     }
-    LOG({
-      noTurnChange: false
-    });
     while (true) {
       nextTurn = nextTurnIdx(curTurn);
       if (nextTurn === curTurn) {
