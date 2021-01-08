@@ -24,11 +24,7 @@
       turn: curTurn,
       turns
     } = combat);
-    console.log("ON-DECK: ", {
-      turnCount: turns.length({
-        isGM: user.isGM
-      }, changed)
-    });
+    console.log("ON-DECK: ", {arguments});
     if (!wantsOnDeckNotice(user)) {
       return;
     }
@@ -73,5 +69,7 @@
   };
 
   Hooks.on("updateCombat", handleUpdateCombat);
+
+  game.OnDeck = {handleUpdateCombat, nextTurnIdx};
 
 }).call(this);

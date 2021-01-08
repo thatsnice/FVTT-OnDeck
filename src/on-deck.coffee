@@ -21,11 +21,7 @@ handleUpdateCombat = ( combat
   user = game.user
   {turn: curTurn, turns} = combat
 
-  console.log "ON-DECK: ",
-              { turnCount: turns.length
-                isGM: user.isGM
-                changed
-              }
+  console.log "ON-DECK: ", { arguments }
 
   return unless wantsOnDeckNotice user
   return unless turns?.length > 1
@@ -60,4 +56,9 @@ handleUpdateCombat = ( combat
   undefined
 
 Hooks.on "updateCombat", handleUpdateCombat
+
+game.OnDeck = {
+  handleUpdateCombat
+  nextTurnIdx
+}
 
