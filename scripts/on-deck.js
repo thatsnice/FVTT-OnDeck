@@ -24,6 +24,11 @@
       turn: curTurn,
       turns
     } = combat);
+    console.log("ON-DECK: ", {
+      turnCount: turns.length({
+        isGM: user.isGM
+      }, changed)
+    });
     if (!wantsOnDeckNotice(user)) {
       return;
     }
@@ -66,5 +71,7 @@
     }
     return void 0;
   };
+
+  Hooks.on("updateCombat", handleUpdateCombat);
 
 }).call(this);
