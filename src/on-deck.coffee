@@ -50,7 +50,10 @@ handleUpdateCombat = ( combat
       else
         return
 
-    if user._id in t.players.map (p) -> p._id
+    userInPlayers = user.id in t.players.map (p) -> p.id
+    LOG {userInPlayers}
+
+    if userInPlayers
       actorName = t.actor.name
       message =
         speaker: alias: "On Deck Module"

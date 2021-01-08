@@ -22,7 +22,7 @@
   };
 
   handleUpdateCombat = async function(combat, changed, options, userId) {
-    var actorName, curTurn, message, nextTurn, ref, t, turns, user;
+    var actorName, curTurn, message, nextTurn, ref, t, turns, user, userInPlayers;
     user = game.user;
     ({
       turn: curTurn,
@@ -62,9 +62,11 @@
           return;
         }
       }
-      if (ref = user._id, indexOf.call(t.players.map(function(p) {
-        return p._id;
-      }), ref) >= 0) {
+      userInPlayers = (ref = user.id, indexOf.call(t.players.map(function(p) {
+        return p.id;
+      }), ref) >= 0);
+      LOG({userInPlayers});
+      if (userInPlayers) {
         actorName = t.actor.name;
         message = {
           speaker: {
