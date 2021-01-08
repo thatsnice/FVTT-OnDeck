@@ -42,7 +42,7 @@
     LOG({
       userIsGM: false
     });
-    if (indexOf.call(changed, "round") < 0 && indexOf.call(changed, "turn") < 0) {
+    if (indexOf.call(changed, "round") < 0 || indexOf.call(changed, "turn") < 0) {
       return;
     }
     LOG({
