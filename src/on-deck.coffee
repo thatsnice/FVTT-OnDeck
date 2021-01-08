@@ -33,7 +33,9 @@ handleUpdateCombat = ( combat
   return if user.isGM
   LOG userIsGM: false
 
+  LOG {changed}
   return if "round" not in changed or "turn" not in changed
+
   LOG noTurnChange: false
 
   loop
