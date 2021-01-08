@@ -17,9 +17,7 @@
     return turn;
   };
 
-  LOG = function(...args) {
-    return console.log("ON-DECK: ", ...args);
-  };
+  LOG = function(...args) {}; // console.log "ON-DECK: ", args...
 
   handleUpdateCombat = async function(combat, changed, options, userId) {
     var actorName, curTurn, message, nextTurn, ref, t, turns, user, userInPlayers;

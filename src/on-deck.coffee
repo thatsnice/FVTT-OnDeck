@@ -12,8 +12,7 @@ nextTurnIdx = (combat, turn) ->
 
   turn
 
-LOG = (args...) ->
-  console.log "ON-DECK: ", args...
+LOG = (args...) -> # console.log "ON-DECK: ", args...
 
 handleUpdateCombat = ( combat
                        changed
