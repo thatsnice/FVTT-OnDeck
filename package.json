@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/thatsnice/FVTT-OnDeck#readme",
   "dependencies": {
-    "coffeescript": "^2.5.1"
+    "coffeescript": "^2.5.1",
+    "node-jq": "^1.12.0"
   }
 }
