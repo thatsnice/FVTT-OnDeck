@@ -35,7 +35,7 @@
     if (user.isGM) {
       return;
     }
-    if (indexOf.call(changed, "turn") < 0) {
+    if (indexOf.call(Object.keys(changed), "turn") < 0) {
       LOG({changed}, "has no turn?");
       return;
     }

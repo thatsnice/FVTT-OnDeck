@@ -29,7 +29,7 @@ handleUpdateCombat = ( combat
 
   return if user.isGM
 
-  unless "turn" in changed
+  unless "turn" in Object.keys changed
     LOG {changed}, "has no turn?"
     return
 
