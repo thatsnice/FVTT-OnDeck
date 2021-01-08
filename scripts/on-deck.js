@@ -40,7 +40,7 @@
       return;
     }
     while (true) {
-      nextTurn = nextTurnIdx(curTurn);
+      nextTurn = nextTurnIdx(combat, curTurn);
       if (nextTurn === curTurn) {
         LOG("all turns defeated");
         return;

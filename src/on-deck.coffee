@@ -34,7 +34,7 @@ handleUpdateCombat = ( combat
     return
 
   loop
-    nextTurn = nextTurnIdx curTurn
+    nextTurn = nextTurnIdx combat, curTurn
 
     if nextTurn is curTurn
       LOG "all turns defeated"
