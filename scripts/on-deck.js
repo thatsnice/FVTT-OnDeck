@@ -57,8 +57,10 @@
       // all turns examined were .defeated
       if ((t = turns[nextTurn]).defeated) {
         if (combat.skipDefeated) {
+          LOG("ignoring defeated");
           continue;
         } else {
+          LOG("skipping defeated");
           return;
         }
       }

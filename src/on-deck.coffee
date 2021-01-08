@@ -46,8 +46,10 @@ handleUpdateCombat = ( combat
 
     if (t = turns[nextTurn]).defeated
       if combat.skipDefeated
+        LOG "ignoring defeated"
         continue
       else
+        LOG "skipping defeated"
         return
 
     userInPlayers = user.id in t.players.map (p) -> p.id
