@@ -1,6 +1,6 @@
 {
   "name": "fvtt-ondeck",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "FoundryVTT module to alert players when their turn is next",
   "main": "dist/ondeck.js",
   "scripts": {
