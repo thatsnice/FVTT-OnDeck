@@ -4,7 +4,8 @@
   "description": "FoundryVTT module to alert players when their turn is next",
   "main": "dist/ondeck.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tools/build.sh"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,12 @@
     "npm": false,
     "github": {
       "release": true
+    },
+    "hooks": {
+      "after:bump": [
+        "npm run build",
+        "node_modules/coffeescript/bin/coffee tools/version-bump.coffee"
+      ]
     },
     "plugins": {
       "@release-it/bumper": {
