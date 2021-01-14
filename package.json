@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/thatsnice/FVTT-OnDeck#readme",
   "devDependencies": {
+    "@release-it/bumper": "^2.0.0",
     "coffeescript": "^2.5.1",
     "kava": "^5.13.0",
     "node-jq": "^1.12.0",
@@ -24,7 +25,9 @@
   },
   "release-it": {
     "npm": false,
-    "github": { "release": true },
+    "github": {
+      "release": true
+    },
     "plugins": {
       "@release-it/bumper": {
         "out": {
