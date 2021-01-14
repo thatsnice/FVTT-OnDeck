@@ -11,5 +11,3 @@ fi
 
 mkdir   -p $SCRIPTS
 $COFFEE -o $SCRIPTS $SRC
-$COFFEE $PROJECT_ROOT/tools/version-bump.coffee
-echo "Version bumped to $($JQ .version module.json)"

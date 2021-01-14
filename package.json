@@ -23,6 +23,14 @@
     "release-it": "*"
   },
   "release-it": {
-    "npm": false
+    "npm": false,
+    "github": { "release": true },
+    "plugins": {
+      "@release-it/bumper": {
+        "out": {
+          "file": "manifest.json"
+        }
+      }
+    }
   }
 }
