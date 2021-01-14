@@ -3,7 +3,7 @@
   "title": "On Deck - Notifies players when their turn is next.",
   "description": "Send a message or play a sound for a player at the start of the turn of the actor before them in the initiative order.",
   "author": "Robert de Forest <guitar.robot@gmail.com>",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "minimumCoreVersion": "0.7.5",
   "scripts": [
     "scripts/on-deck.js"
