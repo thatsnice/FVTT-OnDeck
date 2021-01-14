@@ -31,7 +31,8 @@
     "plugins": {
       "@release-it/bumper": {
         "out": {
-          "file": "module.json"
+          "file": "module.json",
+          "type": "text/json"
         }
       }
     }
