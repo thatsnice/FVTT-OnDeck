@@ -16,8 +16,9 @@
     "url": "https://github.com/thatsnice/FVTT-OnDeck/issues"
   },
   "homepage": "https://github.com/thatsnice/FVTT-OnDeck#readme",
-  "dependencies": {
+  "devDependencies": {
     "coffeescript": "^2.5.1",
+    "kava": "^5.13.0",
     "node-jq": "^1.12.0"
   }
 }
