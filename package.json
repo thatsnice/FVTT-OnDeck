@@ -31,7 +31,7 @@
     "plugins": {
       "@release-it/bumper": {
         "out": {
-          "file": "manifest.json"
+          "file": "module.json"
         }
       }
     }
